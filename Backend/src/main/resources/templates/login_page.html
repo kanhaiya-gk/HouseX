@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html 
+xmlns:th="http://www.thymeleaf.org"
+lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="../static/login.css" href="@{/login.css}"/> -->
+  <!-- <link rel="stylesheet" href="./login.css"/> -->
+</head>
+
+<style>
+  * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  overflow-x: hidden;
+}
+
+  .section-login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-list {
+  height: 34rem;
+  width: 36rem;
+  box-shadow: 0 3.2rem 4.8rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2rem;
+  padding: 3.6rem 3.6rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 3.6rem;
+}
+
+.login-item input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.4rem #98e2cc;
+  border-radius: 2px;
+}
+
+.login-label {
+  font-size: 1.8rem;
+}
+
+.login-icon {
+  height: 2rem;
+  width: 2rem;
+  color: #087f5b;
+}
+
+.signup-icon {
+  height: 2rem;
+  width: 2rem;
+  color: #087f5b;
+}
+
+.login-icon-input {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.login-icon-input input {
+  height: 2.8rem;
+  font-size: 1.8rem;
+  padding: 0.6rem 1.2rem;
+  flex: 1 0 auto;
+  border: none
+}
+
+.login-button {
+  height: 5.4rem;
+  width: 18rem;
+  margin: auto auto 0 auto;
+  border-radius: 3.6rem;
+  border-color: white;
+  font-size: 2.8rem;
+  background-color: #087f5b;
+  color: white;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #086247;
+}
+
+.signup-link {
+  font-size: 1.4rem;
+  color: #086247;
+  position: absolute;
+  bottom: 1.2rem;
+  left: 14rem;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+.icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  color: #087f5b;
+}
+</style>
+
+<body>
+  <section class="section-login">
+    <ul class="login-list">
+      <form action="" method="" id="login-form" class="login-form">
+        <li class="login-item">
+          <label for="email" class="login-label">Email</label>
+
+          <div class="login-icon-input">
+            <svg
+              class="login-icon w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+              />
+            </svg>
+
+            <input
+              type="text"
+              class="login-email"
+              id="login-email"
+              placeholder="Enter your email address"
+            />
+          </div>
+        </li>
+        <li class="login-item">
+          <label for="password" class="login-label">Password</label>
+
+          <div class="login-icon-input">
+            <svg
+              class="login-icon w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+              />
+            </svg>
+
+            <input
+              type="password"
+              class="login-password"
+              id="login-password"
+              placeholder="Enter your password"
+            />
+          </div>
+        </li>
+        <li class="login-item">
+          <button id="login-button" class="login-button" type="submit" form="login-form">Login</button>
+        </li>
+      </form>
+      <a class="signup-link" href="/signup">Signup here &#8594;</a>
+    </ul>
+  </section>
+
+  <script>
+    const login_form = document.getElementById('login-form');
+    const login_email = document.getElementById('login-email');
+    const login_password = document.getElementById('login-password');
+
+
+    const redirectHome = () => {
+      // window.location.href = `http://localhost:8080/home?token={localStorage.getItem("token")}`
+      window.location.href = `http://localhost:8080/home?token=${localStorage.getItem("token")}`
+    }
+
+    const submitForm = (login_data) => {
+      fetch('http://localhost:8080', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(login_data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        try {
+          localStorage.setItem("token", data.token);
+          redirectHome();
+        } catch (e) {
+          localStorage.setItem("token", "");
+        }
+      });
+    }
+
+    login_form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = login_email.value;
+      const password = login_password.value;
+
+      const login_data = {
+        "email_id": email,
+        "password": password
+      }
+
+      submitForm(login_data);
+    })
+
+  </script>
+
+</body>
+</html>
