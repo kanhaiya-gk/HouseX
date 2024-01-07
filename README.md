@@ -11,17 +11,17 @@
 + node v12.22.9 (or later)
 ### Running the Project
 ```
-+ git clone https://github.com/kanhaiya-gk/HouseX.git
-+ cd HouseX
+git clone https://github.com/kanhaiya-gk/HouseX.git
+cd HouseX
 ```
 For running the Spring Boot Server:
 ```
-+ cd Backend
-+ mvn spring-boot:run
+cd Backend
+mvn spring-boot:run
 ```
 For running the frontend server
 ```
-+ cd ../Frontend
-+ npm run start
+cd ../Frontend
+npm run start
 ```
 ***The Application is Ready to use and can be launched at `http://localhost:8080/`.***
